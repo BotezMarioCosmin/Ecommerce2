@@ -12,6 +12,7 @@ namespace Ecommerce2
     {
         string _model;
         string _day;
+        float _discountedPrice;
         public string Model 
         {
             get
@@ -35,24 +36,35 @@ namespace Ecommerce2
             }
             private set
             {
-                if (value != null)
+                if (getDay() != null)
                 {
-                    DayOfWeek d = DateTime.Today.DayOfWeek;
-                    _day = Convert.ToString(d);
+                    _day = getDay();
                 }
                 else
                     throw new Exception("Invalid Day");
             }
         }
 
-        public Electronic(string id, string name, string manufacturer, string description, float price, string model, string day) : base(id, name, manufacturer, description)
-        {
-            Price = Discount(price);
-            Model = model;
-            DayOfTheWeek = day;
+        public float DiscountedPrice
+        { 
+            get { return _discountedPrice; }
+            private set { _discountedPrice = Discount(Price); }
         }
 
-        public Electronic() : this("NullName", "NullName", "NullManufacturer", "NullDescription", 0, "NullModel", "NullDay")
+        private string getDay()
+        {
+            DayOfWeek d = DateTime.Today.DayOfWeek;
+            return Convert.ToString(d);
+        }
+
+        public Electronic(string id, string name, string manufacturer, string description, float price, string model) : base(id, name, manufacturer, description, price)
+        {
+            DiscountedPrice = Discount(price);
+            Model = model;
+            DayOfTheWeek = getDay();
+        }
+
+        public Electronic() : this("NullName", "NullName", "NullManufacturer", "NullDescription", 0, "NullModel")
         {
 
         }
@@ -62,7 +74,7 @@ namespace Ecommerce2
             if (DayOfTheWeek == "Monday" || DayOfTheWeek == "Lunedì")
             {
                 float tmp = price / 100 * 5;
-                price -= tmp;
+                price = price - tmp;
                 return price;
             }
             return price;

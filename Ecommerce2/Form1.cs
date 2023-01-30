@@ -20,8 +20,8 @@ namespace Ecommerce2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Electronic el = new Electronic();
-            textBox1.Text = el.DayOfTheWeek;
+            Electronic el = new Electronic("id0","telefono","samsung","bello",959,"s23");
+            textBox1.Text = el.DayOfTheWeek + " " + el.Price + " " + el.DiscountedPrice;
         }
     }
 }
