@@ -69,7 +69,7 @@ namespace Ecommerce2
                 if (value != null)
                     _manufacturer = value;
                 else
-                    throw new Exception("Invalid manifacturer");
+                    throw new Exception("Invalid manufacturer");
             }
         }
 
@@ -93,7 +93,7 @@ namespace Ecommerce2
         {
             if (String.IsNullOrEmpty(id) || String.IsNullOrEmpty(name) || String.IsNullOrEmpty(prod) || price <= 0)
             {
-                throw new Exception("invalid product parameters ");
+                throw new Exception("Invalid product parameters ");
             }
             Id = id;
             Name = name;

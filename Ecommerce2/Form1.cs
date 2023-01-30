@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,8 @@ namespace Ecommerce2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            Electronic el = new Electronic();
+            textBox1.Text = el.DayOfTheWeek;
         }
     }
 }
