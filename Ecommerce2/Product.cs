@@ -8,74 +8,147 @@ namespace Ecommerce2
 {
     public class Product
     {
-        private string _id; //primary key
-        private string _nome;
-        private float _prezzo;
-        private string _produttore;
-        private string _descrizione;
+        //attributi
+        private string _id, _name, _manufacturer, _description;
+        private float _price;
 
-        public Product(string id1, string nome1, float prezzo1, string produttore1, string descrizione1)
+        //properties
+        public float Price
         {
-            Id = id1;
-            Nome = nome1;
-            Prezzo = prezzo1;
-            Produttore = produttore1;
-            Descrizione = descrizione1;
+            get
+            {
+                return _price;
+            }
+            set
+            {
+                if (value > 0)
+                    _price = value;
+                else
+                    throw new Exception("Price must be >0");
+            }
         }
 
         public string Id
         {
-            set { _id = value; }
-            get { return _id; }
+            get
+            {
+                return _id;
+            }
+            private set
+            {
+                if (value != null)
+                    _id = value;
+                else
+                    throw new Exception("Invalid ID");
+            }
         }
 
-        public string Nome
+        public string Name
         {
-            set { _nome = value; }
-            get { return _nome; }
+            get
+            {
+                return _name;
+            }
+            private set
+            {
+                if (value != null)
+                    _name = value;
+                else
+                    throw new Exception("Invalid name");
+            }
         }
 
-        public float Prezzo
+        public string Manufacturer
         {
-            set { _prezzo = value; }
-            get { return _prezzo; }
+            get
+            {
+                return _manufacturer;
+            }
+            private set
+            {
+                if (value != null)
+                    _manufacturer = value;
+                else
+                    throw new Exception("Invalid manifacturer");
+            }
         }
 
-        public string Produttore
+        public string Description
         {
-            set { _produttore = value; }
-            get { return _produttore; }
+            get
+            {
+                return _description;
+            }
+            private set
+            {
+                if (value != null)
+                    _description = value;
+                else
+                    throw new Exception("Invalid description");
+            }
         }
 
-        public string Descrizione
+        //costruttori
+        public Product(string id, string name, string prod, string descr, float price)
         {
-            set { _descrizione = value; }
-            get { return _descrizione; }
+            if (String.IsNullOrEmpty(id) || String.IsNullOrEmpty(name) || String.IsNullOrEmpty(prod) || price <= 0)
+            {
+                throw new Exception("invalid product parameters ");
+            }
+            Id = id;
+            Name = name;
+            Manufacturer = prod;
+            Description = descr;
+            Price = price;
         }
 
-        public string toStringId()
+        public Product(string id, string name, string prod, string descr) : this(id, name, prod, descr, 10)
         {
-            return Id;
         }
 
-        public string toStringNome()
+        public Product(string id, string name, string prod) : this(id, name, prod, "N/A", 10)
         {
-            return Nome;
         }
 
-        public float toStringPrezzo()
+        public Product() : this("IDVUOTO", "N/A", "N/A", "N/A", 10)
         {
-            return Prezzo;
         }
 
-        public string toStringProduttore()
+        public Product(string id, string name, string prod, float price) : this(id, name, prod, "N/A", price)
         {
-            return Produttore;
+
         }
 
-        public string toStringDescrizione()
+        public Product(string id) : this(id, "N/A", "N/A", "N/A", 1)
         {
-            return Descrizione;
+
+        }
+
+        //costruttore copia
+        protected Product(Product other) : this(other.Id, other.Name, other.Manufacturer, other.Description, other.Price)
+        {
+        }
+
+        //clone
+        public Product Clone()
+        {
+            return new Product(this);
+        }
+
+        //Equals
+        public bool Equals(Product p)
+        {
+            if (p == null) return false;
+
+            if (this == p) return true;
+
+            return (this.Id == p.Id);
+        }
+
+        //ToString
+        public override string ToString()
+        {
+            return "Product:" + Id + ";" + Name + ";" + Manufacturer + ";" + Description + ";" + Price;
         }
     }
 }
