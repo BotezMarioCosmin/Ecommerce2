@@ -11,7 +11,7 @@ namespace Ecommerce2
     public class Electronic : Product
     {
         string _model;
-        string _day;
+        string _dayOfTheWeek;
         float _discountedPrice;
         public string Model 
         {
@@ -32,16 +32,11 @@ namespace Ecommerce2
         {
             get
             {
-                return _day;
+                return _dayOfTheWeek;
             }
             private set
             {
-                if (getDay() != null)
-                {
-                    _day = getDay();
-                }
-                else
-                    throw new Exception("Invalid Day");
+                _dayOfTheWeek = getDay();
             }
         }
 
@@ -71,7 +66,7 @@ namespace Ecommerce2
         
         private float Discount(float price)
         {
-            if (DayOfTheWeek == "Monday" || DayOfTheWeek == "Lunedì")
+            if (DayOfTheWeek == "Monday")// || DayOfTheWeek == "Lunedì")
             {
                 float tmp = price / 100 * 5;
                 price = price - tmp;
