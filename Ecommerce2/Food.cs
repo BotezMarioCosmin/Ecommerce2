@@ -105,12 +105,17 @@ namespace Ecommerce2
             return base.getDiscount();
         }
 
+        public override string ToString()
+        {
+            return base.ToString() + ExpirationDate + ";" + IngredientsToString() + ";";
+        }
+
         private string IngredientsToString()
         {
-            return Convert.ToString(Ingredients[0]) + Convert.ToString(Ingredients[1]) + Convert.ToString(Ingredients[2]) +
-                Convert.ToString(Ingredients[3]) + Convert.ToString(Ingredients[4]) + Convert.ToString(Ingredients[5]) +
-                Convert.ToString(Ingredients[6]) + Convert.ToString(Ingredients[7]) + Convert.ToString(Ingredients[8])
-                + Convert.ToString(Ingredients[9]);
+            return Convert.ToString(Ingredients[0]) + ";" + Convert.ToString(Ingredients[1]) + ";" + Convert.ToString(Ingredients[2]) + ";" +
+                Convert.ToString(Ingredients[3]) + ";" + Convert.ToString(Ingredients[4]) + ";" + Convert.ToString(Ingredients[5]) + ";"
+                + Convert.ToString(Ingredients[6]) + ";" + Convert.ToString(Ingredients[7]) + ";" + Convert.ToString(Ingredients[8]) + 
+                ";" + Convert.ToString(Ingredients[9]);
         }
     }
 }
