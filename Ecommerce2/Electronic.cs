@@ -44,12 +44,6 @@ namespace Ecommerce2
             }
         }
 
-        public float DiscountedPrice
-        { 
-            get { return _discountedPrice; }
-            private set { _discountedPrice = Discount(Price); }
-        }
-
         private string getDay()
         {
             DayOfWeek d = DateTime.Today.DayOfWeek;
@@ -60,7 +54,7 @@ namespace Ecommerce2
         {
             Model = model;
             DayOfTheWeek = getDay();
-            DiscountedPrice = Discount(price);
+            Price = Discount(price);
         }
 
         public Electronic() : this("NullId", "NullName", "NullManufacturer", "NullDescription", 0, "NullModel")
@@ -76,7 +70,12 @@ namespace Ecommerce2
                 price = price - tmp;
                 return price;
             }
-            return price;
+            return base.getDiscount();
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + Model + ";";
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Ecommerce2
     {
         private string[] _ingredients = new string[10];
         private DateTime _expirationDate; // dd/mm/yy
-        private DateTime _currentDate;
+        private DateTime _currentDate; // dd/mm/yy
         public DateTime ExpirationDate
         {
             get

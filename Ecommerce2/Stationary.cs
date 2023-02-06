@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Ecommerce2
 {
-    internal class Stationary
+    public class Stationary
     {
+
     }
 }
