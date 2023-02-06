@@ -150,5 +150,7 @@ namespace Ecommerce2
         {
             return "Product:" + Id + ";" + Name + ";" + Manufacturer + ";" + Description + ";" + Price;
         }
+
+        public virtual float getDiscount() { return Price; }
     }
 }

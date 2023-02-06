@@ -1,6 +1,7 @@
 ﻿using Microsoft.SqlServer.Server;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace Ecommerce2
     {
         private string[] _ingredients = new string[10];
         private DateTime _expirationDate; // dd/mm/yy
-        private string _dayOfTheWeek;
+        private DateTime _currentDate;
         public DateTime ExpirationDate
         {
             get
@@ -46,18 +47,15 @@ namespace Ecommerce2
             }
         }
 
-        public string DayOfTheWeek
+        public DateTime CurrentDate
         {
             get
             {
-                return _dayOfTheWeek;
+                return DateTime.Now;
             }
             set
             {
-                if (!String.IsNullOrWhiteSpace(value))
-                {
-                    _dayOfTheWeek = value;
-                }
+                _currentDate = DateTime.Now;
             }
         }
 
@@ -73,6 +71,11 @@ namespace Ecommerce2
             Ingredients = generateNullIngredients();
         }
 
+        public Food() : this("NullId", "NullName", "NullManufacturer", "NullDescription", 0, new DateTime(9999, 1, 1))
+        {
+
+        }
+
         private string[] generateNullIngredients()
         {
             for (int i = 0; i < Ingredients.Length; i++)
@@ -81,21 +84,25 @@ namespace Ecommerce2
             }
             return Ingredients;
         }
-        
-        public Food() : this("NullId", "NullName", "NullManufacturer", "NullDescription", 0, new DateTime(9999, 1, 1))
-        {
 
+        public bool expired()
+        {
+            var dif = ExpirationDate.Subtract(CurrentDate);
+            if (dif.Days < 0)
+            {
+                return true;
+            }
+            return false;
         }
 
-        private float Discount(float price)
+        public override float getDiscount()
         {
-            if (DayOfTheWeek == "Monday")
+            var dif = ExpirationDate.Subtract(CurrentDate);
+            if (dif.Days < 7)
             {
-                float tmp = price / 100 * 5;
-                price = price - tmp;
-                return price;
+                return Price / 2;
             }
-            return price;
+            return base.getDiscount();
         }
 
         private string IngredientsToString()
