@@ -5,14 +5,15 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Ecommerce2
 {
     public class Electronic : Product
     {
-        string _model;
-        string _dayOfTheWeek;
-        float _discountedPrice;
+        private string _model;
+        private string _dayOfTheWeek;
+        private float _discountedPrice;
         public string Model 
         {
             get
@@ -34,9 +35,12 @@ namespace Ecommerce2
             {
                 return _dayOfTheWeek;
             }
-            private set
+            set
             {
-                _dayOfTheWeek = getDay();
+                if (!String.IsNullOrWhiteSpace(value))
+                {
+                    _dayOfTheWeek = value;
+                }
             }
         }
 
@@ -54,19 +58,19 @@ namespace Ecommerce2
 
         public Electronic(string id, string name, string manufacturer, string description, float price, string model) : base(id, name, manufacturer, description, price)
         {
-            DiscountedPrice = Discount(price);
             Model = model;
             DayOfTheWeek = getDay();
+            DiscountedPrice = Discount(price);
         }
 
-        public Electronic() : this("NullName", "NullName", "NullManufacturer", "NullDescription", 0, "NullModel")
+        public Electronic() : this("NullId", "NullName", "NullManufacturer", "NullDescription", 0, "NullModel")
         {
 
         }
         
         private float Discount(float price)
         {
-            if (DayOfTheWeek == "Monday")// || DayOfTheWeek == "Lunedì")
+            if (DayOfTheWeek == "Monday" || DayOfTheWeek == "Lunedì")
             {
                 float tmp = price / 100 * 5;
                 price = price - tmp;

@@ -22,6 +22,8 @@ namespace Ecommerce2
         {
             Electronic el = new Electronic("id0","telefono","samsung","bello",959,"s23");
             textBox1.Text = el.DayOfTheWeek + " " + el.Price + " " + el.DiscountedPrice;
+            Food f = new Food("id1", "mela", "melinda", "mela rossa", 1, new DateTime(2023, 2, 1));
+            textBox2.Text = f.ToString();
         }
     }
 }
