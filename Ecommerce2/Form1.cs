@@ -24,6 +24,9 @@ namespace Ecommerce2
             textBox1.Text = el.DayOfTheWeek + " " + el.Price;
             Food f = new Food("id1", "mela", "melinda", "mela rossa", 4, new DateTime(2023, 2, 14));
             textBox2.Text = Convert.ToString(f.expired()) + " " + f.getDiscount()+ " " + Convert.ToString(f.CurrentDate);
+            Sheets s = new Sheets("sheet1","foglio","fogli","foglio",1,1);
+            textBox3.Text = Convert.ToString(s.Price) + " " + s.getDiscount();
         }
+
     }
 }

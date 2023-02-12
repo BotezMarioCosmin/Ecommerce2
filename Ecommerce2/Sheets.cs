@@ -12,9 +12,9 @@ namespace Ecommerce2
         public float Weight
         {
             get { return _weight; }
-            set { _weight = value; }
+            private set { _weight = value; }
         }
-        public Stationary() : this("NullId", "NullName", "NullManufacturer", "NullDescription", 0, 0) { }
+        public Sheets() : this("NullId", "NullName", "NullManufacturer", "NullDescription", 0, 0) { }
 
         public Sheets(string id, string name, string manufacturer, string description, float price, float weight): base(id, name, manufacturer, description, price)
         {
