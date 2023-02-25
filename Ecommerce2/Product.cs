@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ecommerce2
 {
-    public class Product
+    public abstract class Product
     {
         //attributi
         private string _id, _name, _manufacturer, _description;
@@ -129,12 +129,13 @@ namespace Ecommerce2
         {
         }
 
-        //clone
+        //clone 
+        /*
         public Product Clone()
         {
             return new Product(this);
         }
-
+        */
         //Equals
         public bool Equals(Product p)
         {

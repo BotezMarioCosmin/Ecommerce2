@@ -52,7 +52,7 @@ namespace Ecommerce2
             this.Id = id;
             Clear();
         }
-
+        /*
         //costruttore copia
         protected Cart(Cart c) : this(c.Id)
         {
@@ -73,7 +73,7 @@ namespace Ecommerce2
         {
             return new Cart(this);
         }
-
+        */
         //metodi
         public void Clear()
         {
