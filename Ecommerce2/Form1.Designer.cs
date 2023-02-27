@@ -54,10 +54,10 @@
             this.labelCreateProduct = new System.Windows.Forms.Label();
             this.comboBoxProductTypes = new System.Windows.Forms.ComboBox();
             this.panelAdditional = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.buttonCreate = new System.Windows.Forms.Button();
-            this.textBoxAdditional = new System.Windows.Forms.TextBox();
             this.textBoxAdditional2 = new System.Windows.Forms.TextBox();
+            this.textBoxAdditional = new System.Windows.Forms.TextBox();
+            this.buttonCreate = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.panelCreateProduct.SuspendLayout();
             this.panelAdditional.SuspendLayout();
             this.SuspendLayout();
@@ -143,7 +143,7 @@
             this.panelCreateProduct.Controls.Add(this.labelCreateType);
             this.panelCreateProduct.Controls.Add(this.labelCreateProduct);
             this.panelCreateProduct.Controls.Add(this.comboBoxProductTypes);
-            this.panelCreateProduct.Location = new System.Drawing.Point(12, 121);
+            this.panelCreateProduct.Location = new System.Drawing.Point(555, 163);
             this.panelCreateProduct.Name = "panelCreateProduct";
             this.panelCreateProduct.Size = new System.Drawing.Size(954, 526);
             this.panelCreateProduct.TabIndex = 7;
@@ -311,15 +311,21 @@
             this.panelAdditional.Size = new System.Drawing.Size(954, 526);
             this.panelAdditional.TabIndex = 17;
             // 
-            // label4
+            // textBoxAdditional2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(401, 74);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(142, 32);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Additional";
+            this.textBoxAdditional2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAdditional2.Location = new System.Drawing.Point(303, 263);
+            this.textBoxAdditional2.Name = "textBoxAdditional2";
+            this.textBoxAdditional2.Size = new System.Drawing.Size(333, 39);
+            this.textBoxAdditional2.TabIndex = 3;
+            // 
+            // textBoxAdditional
+            // 
+            this.textBoxAdditional.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAdditional.Location = new System.Drawing.Point(109, 208);
+            this.textBoxAdditional.Name = "textBoxAdditional";
+            this.textBoxAdditional.Size = new System.Drawing.Size(734, 39);
+            this.textBoxAdditional.TabIndex = 2;
             // 
             // buttonCreate
             // 
@@ -332,21 +338,15 @@
             this.buttonCreate.UseVisualStyleBackColor = true;
             this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
-            // textBoxAdditional
+            // label4
             // 
-            this.textBoxAdditional.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAdditional.Location = new System.Drawing.Point(109, 208);
-            this.textBoxAdditional.Name = "textBoxAdditional";
-            this.textBoxAdditional.Size = new System.Drawing.Size(734, 39);
-            this.textBoxAdditional.TabIndex = 2;
-            // 
-            // textBoxAdditional2
-            // 
-            this.textBoxAdditional2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAdditional2.Location = new System.Drawing.Point(303, 263);
-            this.textBoxAdditional2.Name = "textBoxAdditional2";
-            this.textBoxAdditional2.Size = new System.Drawing.Size(333, 39);
-            this.textBoxAdditional2.TabIndex = 3;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(401, 74);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(142, 32);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Additional";
             // 
             // Form1
             // 

@@ -129,6 +129,10 @@ namespace Ecommerce2
                 Pens pe = new Pens(textBoxCreateId.Text, textBoxCreateName.Text, textBoxCreateManufacturer.Text, richTextBox1.Text, int.Parse(textBoxCreatePrice.Text), textBoxAdditional.Text);
             }
             panelAdditional.Hide();
+
+            string[] row = { textBoxCreateId.Text, textBoxCreateName.Text, textBoxCreateManufacturer.Text, richTextBox1.Text, textBoxCreatePrice.Text, textBoxAdditional.Text };
+            var listViewItem = new ListViewItem(row);
+            listView1.Items.Add(listViewItem);
         }
     }
 }
